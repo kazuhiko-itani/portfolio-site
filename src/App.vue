@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+      <navheader></navheader>
+      <div class='container'>
+        <transition>
+          <router-view />
+        </transition>
+      </div>
+      <navfooter></navfooter>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+  import navheader from '@/components/NavHeader.vue'
+  import navfooter from '@/components/NavFooter.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'app',
+    components: {
+      navheader,
+      navfooter
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+  h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .v-enter-active {
+    transition: opacity 1.5s;
+  }
+
+  .v-enter, .v-leave-to {
+    opacity: 0;
+  }
 </style>
